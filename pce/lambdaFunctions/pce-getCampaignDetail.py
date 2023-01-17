@@ -17,13 +17,11 @@ def defaultencode(o):
 def lambda_handler(event, context):
     header_data = event.get('headers')
     header_origin = {"Access-Control-Allow-Origin": header_data.get('Origin') if header_data.get('Origin') is not None else header_data.get('origin')}
-    userName = json.loads(event.get("body", None)).get("UserName")
-    userName = event['userName']
-    print(userName)
+    campaignId = json.loads(event.get("body", None)).get("campaignId")
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('pce-campaignDetails')
-    response = table.scan(FilterExpression='userName = :val',
-                          ExpressionAttributeValues={':val': userName})
+    response = table.scan(FilterExpression='campaignId = :val',
+                          ExpressionAttributeValues={':val': campaignId})
     return {'statusCode': 200, "headers": header_origin, "multiValueHeaders": {}, "isBase64Encoded": False,
             'body': json.dumps(response['Items'], default=defaultencode)}
 

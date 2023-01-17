@@ -28,8 +28,6 @@ export default class TemplateListDropDown extends React.Component {
   }
 
   onChange = (event) => {
-    console.log(event.target.value);
-    //var templateName = event.target.value;
     this.setState({ value: event.target.value });
     this.props.getTemplateName(event.target.value);
   };

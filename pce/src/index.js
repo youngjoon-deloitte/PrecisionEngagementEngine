@@ -5,13 +5,16 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { FavoritesContextProvider } from "./store/favorites-context";
+import { AuthContextProvider } from "./store/auth-context";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
 root.render(
-  <FavoritesContextProvider>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </FavoritesContextProvider>
+  <AuthContextProvider>
+    <FavoritesContextProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </FavoritesContextProvider>
+  </AuthContextProvider>
 );
