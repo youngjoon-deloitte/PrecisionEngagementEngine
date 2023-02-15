@@ -69,6 +69,10 @@ export default class Signup extends Component {
       campaignQuietEndTime,
       timeZone,
       reviewAndValidate,
+      campaignId,
+      campaignStatus,
+      campaignCreationDate,
+      userName,
     } = this.state;
     const values = {
       campaignName,
