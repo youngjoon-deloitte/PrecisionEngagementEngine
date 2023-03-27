@@ -1,22 +1,24 @@
-import boto3
+#create a function to take an event from api gateway that has USER_ID, ITEM_ID, EVENT_TYPE, CAMPAIGN_NAME, LANGUAGE, CHANNEL, PURPOSE and send as an object to S3 bucket
 
-#lambda function to take campaignID from the event and return the campaign status from the dynamoDB table pce-campaignDetails. 
+#import boto3
+#import json
+#import os
+#import uuid
+#import time
+
+#def lambda_handler(event, context):
+    #print(event)
+    #return {
+        
+
+import json
+
 def lambda_handler(event, context):
-    
-    # TODO implement
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('pce-campaignDetails')
-    campaignID = event['campaignID']
-    response = table.get_item(
-        Key={
-            'campaignID': campaignID
-        }
-    )
-    item = response['Item']
-    #return error prompt if campaignID is not found
-    if 'campaignID' not in response:
-        return {
-            'statusCode': 400,
-            'body': "Campaign ID not found"
-        }
-    return item
+    print(event)
+    return {
+        'statusCode': 200,
+        'body': json.dumps('Hello from Lambda!')
+    }
+
+
+

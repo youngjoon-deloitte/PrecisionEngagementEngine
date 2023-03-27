@@ -36,6 +36,9 @@ function MainNavigation() {
               </span>
             </Link>
           </li>
+          <li>
+            <Link to="/Dialer">Dialer</Link>
+          </li>
           {isLoggedIn && userProfile == "Admin" && (
             <li>
               <Link to="/new-campaign">Admin</Link>

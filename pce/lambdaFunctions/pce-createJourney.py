@@ -7,14 +7,8 @@
 
 import json
 import boto3
-import datetime
-import time
-import calendar
-import random
-import string
 import os
 import logging
-import re
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
